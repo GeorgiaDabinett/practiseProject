@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=
+comment0.target=mainSceneController()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ mainSceneController\r\n
+comment1.params=
+comment1.target=void\ initialize()
+comment2.params=stage
+comment2.target=void\ prepareStageEvents(javafx.stage.Stage)
+comment3.params=we
+comment3.target=void\ handle(javafx.stage.WindowEvent)
+numComments=4
