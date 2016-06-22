@@ -5,13 +5,13 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 
-
 <SplitPane disable="true" dividerPositions="0.6755852842809364" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1">
    <items>
-      <TableView prefHeight="398.0" prefWidth="293.0">
+      <TableView fx:id="everythingTable" prefHeight="398.0" prefWidth="293.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
@@ -21,7 +21,12 @@
          <children>
             <FlowPane layoutX="7.0" layoutY="6.0" prefHeight="383.0" prefWidth="159.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="140.0" text="Button">
+                  <TextField>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                     </FlowPane.margin>
+                  </TextField>
+                  <Button fx:id="searchButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="140.0" text="Search">
                      <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding>
@@ -29,17 +34,17 @@
                         <Insets bottom="5.0" left="10.0" right="5.0" top="10.0" />
                      </FlowPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="69.0" text="Button">
+                  <Button fx:id="addButton" mnemonicParsing="false" prefHeight="59.0" prefWidth="69.0" text="Add">
                      <FlowPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </FlowPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="69.0" text="Button">
+                  <Button fx:id="editButton" mnemonicParsing="false" prefHeight="59.0" prefWidth="69.0" text="Edit">
                      <FlowPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </FlowPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="140.0" text="Button">
+                  <Button fx:id="removeButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="140.0" text="Remove">
                      <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding>
@@ -47,7 +52,7 @@
                         <Insets bottom="5.0" left="10.0" right="5.0" top="10.0" />
                      </FlowPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="140.0" text="Button">
+                  <Button fx:id="exitButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="140.0" text="Exit">
                      <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding>
