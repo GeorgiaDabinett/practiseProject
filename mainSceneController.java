@@ -8,6 +8,7 @@ import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
 import javafx.scene.control.TableView;
 import java.util.List;
+import javafx.scene.control.TableColumn;
 
 public class mainSceneController
 {
@@ -19,6 +20,10 @@ public class mainSceneController
     @FXML   private Button addButton;
     @FXML   private Button searchButton;
     @FXML   private TableView everythingTable;
+    @FXML   private TableColumn nameColumn;
+    @FXML   private TableColumn baseColumn;
+    @FXML   private TableColumn toppingsColumn;
+    @FXML   private TableColumn veggieColumn;
     
     public void SceneController()          // The constructor method, called first when the scene is loaded.
     {
@@ -42,11 +47,11 @@ public class mainSceneController
         System.out.println("Asserting controls...");
         try
         {
-        	assert removeButton != null : "Can't find remove button.";
-        	assert editButton != null : "Can't find edit button.";
-        	assert searchButton != null : "Can't find search button.";
-        	assert exitButton != null : "Can't find exit button.";
-        	assert addButton != null: "Can't find add buttton.";
+            assert removeButton != null : "Can't find remove button.";
+            assert editButton != null : "Can't find edit button.";
+            assert searchButton != null : "Can't find search button.";
+            assert exitButton != null : "Can't find exit button.";
+            assert addButton != null: "Can't find add buttton.";
             assert everythingTable != null : "Can't find list box.";
         }
         catch (AssertionError ae)
@@ -81,14 +86,23 @@ public class mainSceneController
 
     /* The next three methods are event handlers for clicking on the buttons. 
      * The names of these methods are set in Scene Builder so they work automatically. */    
-    @FXML   void yesClicked()
+    @FXML   void addClicked()
     {
-        System.out.println("Yes was clicked!");        
+        System.out.println("Add was clicked!");        
+    }
+    
+    @FXML   void removeClicked()
+    {
+        System.out.println("Remove was clicked!");        
+    }
+    @FXML   void searchClicked()
+    {
+        System.out.println("Search was clicked!");        
     }
 
-    @FXML   void noClicked()
+    @FXML   void editClicked()
     {
-        System.out.println("No was clicked!");
+        System.out.println("Edit was clicked!");
     }
 
     @FXML   void exitClicked()
