@@ -101,7 +101,7 @@ public class mainSceneController
      * item in the view is currently selected (if any) and outputs it to the console. */    
     @FXML   void listViewClicked()
     {
-        Fruit selectedItem = (Fruit) listView.getSelectionModel().getSelectedItem();
+        Pizza selectedItem = (Pizza) everythingTable.getSelectionModel().getSelectedItem();
 
         if (selectedItem == null)
         {
