@@ -14,6 +14,7 @@ public class mainSceneController
 {
     // instance variables - replace the example below with your own
     private static Stage stage;     
+    
     @FXML   private Button removeButton;
     @FXML   private Button editButton;
     @FXML   private Button exitButton;
@@ -61,10 +62,10 @@ public class mainSceneController
         }
 
         /* Next, we load the list of fruit from the database and populate the listView. */
-        System.out.println("Populating scene with items from the database...");        
+/*        System.out.println("Populating scene with items from the database...");        
         @SuppressWarnings("unchecked")
         List<Pizza> targetList = everythingTable.getItems();  // Grab a reference to the listView's current item list.
-        Pizza.readAll(targetList);                     // Hand over control to the fruit model to populate this list.
+        Pizza.readAll(targetList);                     // Hand over control to the fruit model to populate this list.*/
     }
 
     /* In order to catch stage events (the main example being the close (X) button being clicked) we need
@@ -90,41 +91,21 @@ public class mainSceneController
     {
         System.out.println("Add was clicked!");        
     }
-    
-    @FXML   void removeClicked()
+    @FXML   void editClicked()
     {
-        System.out.println("Remove was clicked!");        
+        System.out.println("Add was clicked!");        
     }
     @FXML   void searchClicked()
     {
-        System.out.println("Search was clicked!");        
+        System.out.println("Add was clicked!");        
     }
-
-    @FXML   void editClicked()
+    @FXML   void removeClicked()
     {
-        System.out.println("Edit was clicked!");
+        System.out.println("Add was clicked!");        
     }
-
     @FXML   void exitClicked()
     {
-        System.out.println("Exit was clicked!");        
-        Application.terminate();        // Call the terminate method in the main Application class.
+        System.out.println("Add was clicked!");        
     }
-
-    /* This method, set in SceneBuilder to occur when the listView is clicked, establishes which
-     * item in the view is currently selected (if any) and outputs it to the console. */    
-    @FXML   void listViewClicked()
-    {
-        Pizza selectedItem = (Pizza) everythingTable.getSelectionModel().getSelectedItem();
-
-        if (selectedItem == null)
-        {
-            System.out.println("Nothing selected!");
-        }
-        else
-        {
-            System.out.println(selectedItem + " (id: " + selectedItem.id + ") is selected.");
-        }
-    }    
-   
+    
 }
