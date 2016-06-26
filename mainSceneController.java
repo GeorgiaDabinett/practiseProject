@@ -4,6 +4,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
+import javafx.scene.control.SplitPane;
+import javafx.scene.layout.FlowPane;
 import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
 import javafx.scene.control.TableView;
@@ -15,6 +17,9 @@ public class mainSceneController
     // instance variables - replace the example below with your own
     private static Stage stage;     
     
+    @FXML private SplitPane sPlane;
+    @FXML private Pane rightPane;
+    @FXML private FlowPane fPlane;
     @FXML   private Button removeButton;
     @FXML   private Button editButton;
     @FXML   private Button exitButton;
@@ -26,7 +31,7 @@ public class mainSceneController
     @FXML   private TableColumn toppingsColumn;
     @FXML   private TableColumn veggieColumn;
     
-    public void SceneController()          // The constructor method, called first when the scene is loaded.
+    public mainSceneController()          // The constructor method, called first when the scene is loaded.
     {
         System.out.println("Initialising controllers...");
 
@@ -62,7 +67,7 @@ public class mainSceneController
         }
 
         /* Next, we load the list of fruit from the database and populate the listView. */
-/*        System.out.println("Populating scene with items from the database...");        
+        /*        System.out.println("Populating scene with items from the database...");        
         @SuppressWarnings("unchecked")
         List<Pizza> targetList = everythingTable.getItems();  // Grab a reference to the listView's current item list.
         Pizza.readAll(targetList);                     // Hand over control to the fruit model to populate this list.*/
@@ -105,7 +110,8 @@ public class mainSceneController
     }
     @FXML   void exitClicked()
     {
-        System.out.println("Add was clicked!");        
+        System.out.println("exit was clicked!");
+        Application.terminate();
     }
     
 }

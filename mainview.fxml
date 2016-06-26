@@ -9,62 +9,67 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 
-<SplitPane disable="true" dividerPositions="0.6755852842809364" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainSceneController">
-   <items>
-      <TableView fx:id="everythingTable" prefHeight="398.0" prefWidth="293.0">
-        <columns>
-          <TableColumn fx:id="nameColumn" minWidth="25.0" prefWidth="105.0" text="Name" />
-          <TableColumn fx:id="toppingsColumn" prefWidth="106.0" text="Toppings" />
-            <TableColumn fx:id="baseColumn" prefWidth="89.0" text="Base" />
-            <TableColumn fx:id="veggieColumn" minWidth="0.0" prefWidth="100.0" text="Vegetarian" />
-        </columns>
-      </TableView>
-      <Pane minHeight="-Infinity" minWidth="50.0" prefHeight="398.0" prefWidth="169.0" SplitPane.resizableWithParent="false">
-         <children>
-            <FlowPane layoutX="7.0" layoutY="6.0" prefHeight="383.0" prefWidth="159.0">
+
+<Pane xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainSceneController">
+   <children>
+      <SplitPane disable="true" dividerPositions="0.6755852842809364" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0">
+         <items>
+            <TableView fx:id="everythingTable" prefHeight="398.0" prefWidth="293.0">
+              <columns>
+                <TableColumn fx:id="nameColumn" minWidth="25.0" prefWidth="105.0" text="Name" />
+                <TableColumn fx:id="toppingsColumn" prefWidth="106.0" text="Toppings" />
+                  <TableColumn fx:id="baseColumn" prefWidth="89.0" text="Base" />
+                  <TableColumn fx:id="veggieColumn" minWidth="0.0" prefWidth="100.0" text="Vegetarian" />
+              </columns>
+            </TableView>
+            <Pane minHeight="-Infinity" minWidth="50.0" prefHeight="398.0" prefWidth="169.0" SplitPane.resizableWithParent="false">
                <children>
-                  <TextField>
-                     <FlowPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
-                     </FlowPane.margin>
-                  </TextField>
-                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchClicked" prefHeight="46.0" prefWidth="140.0" text="Search">
-                     <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </padding>
-                     <FlowPane.margin>
-                        <Insets bottom="5.0" left="10.0" right="5.0" top="10.0" />
-                     </FlowPane.margin>
-                  </Button>
-                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#addClicked" prefHeight="59.0" prefWidth="69.0" text="Add">
-                     <FlowPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </FlowPane.margin>
-                  </Button>
-                  <Button fx:id="editButton" mnemonicParsing="false" onAction="#editClicked" prefHeight="59.0" prefWidth="69.0" text="Edit">
-                     <FlowPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </FlowPane.margin>
-                  </Button>
-                  <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeClicked" prefHeight="46.0" prefWidth="140.0" text="Remove">
-                     <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </padding>
-                     <FlowPane.margin>
-                        <Insets bottom="5.0" left="10.0" right="5.0" top="10.0" />
-                     </FlowPane.margin>
-                  </Button>
-                  <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitClicked" prefHeight="46.0" prefWidth="140.0" text="Exit">
-                     <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </padding>
-                     <FlowPane.margin>
-                        <Insets bottom="5.0" left="10.0" right="5.0" top="10.0" />
-                     </FlowPane.margin>
-                  </Button>
+                  <FlowPane layoutX="7.0" layoutY="6.0" prefHeight="383.0" prefWidth="159.0">
+                     <children>
+                        <TextField>
+                           <FlowPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                           </FlowPane.margin>
+                        </TextField>
+                        <Button fx:id="searchButton" mnemonicParsing="false" onMouseClicked="#searchClicked" prefHeight="46.0" prefWidth="140.0" text="Search">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <FlowPane.margin>
+                              <Insets bottom="5.0" left="10.0" right="5.0" top="10.0" />
+                           </FlowPane.margin>
+                        </Button>
+                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#addClicked" onMouseClicked="#addClicked" prefHeight="59.0" prefWidth="69.0" text="Add">
+                           <FlowPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </FlowPane.margin>
+                        </Button>
+                        <Button fx:id="editButton" mnemonicParsing="false" onAction="#editClicked" onMouseClicked="#editClicked" prefHeight="59.0" prefWidth="69.0" text="Edit">
+                           <FlowPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </FlowPane.margin>
+                        </Button>
+                        <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeClicked" onMouseClicked="#removeClicked" prefHeight="46.0" prefWidth="140.0" text="Remove">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <FlowPane.margin>
+                              <Insets bottom="5.0" left="10.0" right="5.0" top="10.0" />
+                           </FlowPane.margin>
+                        </Button>
+                        <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitClicked" onMouseClicked="#exitClicked" prefHeight="46.0" prefWidth="140.0" text="Exit">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <FlowPane.margin>
+                              <Insets bottom="5.0" left="10.0" right="5.0" top="10.0" />
+                           </FlowPane.margin>
+                        </Button>
+                     </children>
+                  </FlowPane>
                </children>
-            </FlowPane>
-         </children>
-      </Pane>
-   </items>
-</SplitPane>
+            </Pane>
+         </items>
+      </SplitPane>
+   </children>
+</Pane>
