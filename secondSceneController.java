@@ -3,6 +3,8 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.event.EventHandler;
+import javafx.stage.WindowEvent;
 /**
  * Write a description of class secondSceneController here.
  * 
@@ -42,4 +44,18 @@ public class secondSceneController
         /* Next, we load the list of fruit from the database and populate the listView. */
                          // Hand over control to the fruit model to populate this list.
     }
+    public void prepareStageEvents(Stage stage)
+    {
+        System.out.println("Preparing stage events...");
+
+        this.stage = stage;
+      
+
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                public void handle(WindowEvent we) {
+                    System.out.println("Close button was clicked!");
+                    Application.terminate();
+                }
+            });
+    }       
 }

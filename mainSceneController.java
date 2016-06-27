@@ -66,11 +66,13 @@ public class mainSceneController
             Application.terminate();
         }
 
-        /* Next, we load the list of fruit from the database and populate the listView. */
-        /*        System.out.println("Populating scene with items from the database...");        
+         /*Next, we load the list of fruit from the database and populate the listView. */
+        System.out.println("Populating scene with items from the database...");        
         @SuppressWarnings("unchecked")
         List<Pizza> targetList = everythingTable.getItems();  // Grab a reference to the listView's current item list.
-        Pizza.readAll(targetList);                     // Hand over control to the fruit model to populate this list.*/
+        Pizza.readAll(targetList); 
+       
+        // Hand over control to the fruit model to populate this list.*/
     }
 
     /* In order to catch stage events (the main example being the close (X) button being clicked) we need
@@ -82,7 +84,8 @@ public class mainSceneController
 
         this.stage = stage;
 
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>()
+        {
                 public void handle(WindowEvent we) {
                     System.out.println("Close button was clicked!");
                     Application.terminate();
@@ -94,19 +97,22 @@ public class mainSceneController
      * The names of these methods are set in Scene Builder so they work automatically. */    
     @FXML   void addClicked()
     {
-        System.out.println("Add was clicked!");        
+        System.out.println("Add was clicked!"); 
+        Application.start2("Add");
     }
     @FXML   void editClicked()
     {
-        System.out.println("Add was clicked!");        
+        System.out.println("Edit was clicked!");     
+        Application.start2("Edit");
     }
     @FXML   void searchClicked()
     {
-        System.out.println("Add was clicked!");        
+        System.out.println("Search was clicked!");
+        
     }
     @FXML   void removeClicked()
     {
-        System.out.println("Add was clicked!");        
+        System.out.println("Remove was clicked!");        
     }
     @FXML   void exitClicked()
     {

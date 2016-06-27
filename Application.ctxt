@@ -6,4 +6,6 @@ comment1.target=void\ start()
 comment2.params=
 comment2.target=void\ terminate()
 comment2.text=The\ following\ method\ can\ be\ called\ from\ any\ controller\ class\ and\ will\ terminate\ the\ application.
-numComments=3
+comment3.params=aORe
+comment3.target=void\ start2(java.lang.String)
+numComments=4

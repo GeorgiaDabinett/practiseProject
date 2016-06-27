@@ -2,6 +2,7 @@ import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.scene.control.TableView;
 /**
  * Write a description of class Pizza here.
  * 
@@ -29,7 +30,7 @@ public class Pizza
         list.clear();       // Clear the target list first.
 
         /* Create a new prepared statement object with the desired SQL query. */
-        PreparedStatement statement = Application.database.newStatement("SELECT id, name, toppings, vegetarian, base FROM demotable"); 
+        PreparedStatement statement = Application.database.newStatement("SELECT id, name, toppings, vegetarian, base FROM type"); 
 
         if (statement != null)      // Assuming the statement correctly initated...
         {
@@ -52,5 +53,17 @@ public class Pizza
                 }
             }
         }
+    }
+    public static void remove(int iD){
+        PreparedStatement statement =Application.database.newStatement("");
+        
+    }
+    public static void add(int iD, String name,String toppings,int base){
+        PreparedStatement statement =Application.database.newStatement("INSERT INTO Type(id,name,Toppings,vegetarian, base) VALUES("+name+","+toppings+","+base+");");
+        
+    }
+    public static void search(int iD){
+        PreparedStatement statement =Application.database.newStatement("SELECT id, name, toppings, vegetarian, base FROM type WHERE id="+iD);
+        
     }
 }

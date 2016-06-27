@@ -26,7 +26,7 @@ public class Application
     {
         try
         {         
-            //database = new DatabaseConnection("Test.db");        // Initiate the database connection.
+            database = new DatabaseConnection("Pizza.db");        // Initiate the database connection.
 
             /* Load the first fxml file that will create our first JavaFX scene. */
             FXMLLoader loader = new FXMLLoader(Application.class.getResource("mainview.fxml"));
@@ -57,5 +57,31 @@ public class Application
 
         if (database != null) database.disconnect();    // Close the connection to the database (if it exists!)
         System.exit(0);                                 // Finally, terminate the entire application.
+    }
+    public static void start2(String aORe){
+        try
+        {         
+            database = new DatabaseConnection("Pizza.db");        // Initiate the database connection.
+
+            /* Load the first fxml file that will create our first JavaFX scene. */
+            FXMLLoader loader = new FXMLLoader(Application.class.getResource("secondview.fxml"));
+
+            /* Each scene requires a Window, called a stage. The following creates and displays the stage. */
+            Stage stage = new Stage();
+            stage.setTitle(aORe);
+            stage.setScene(new Scene(loader.load()));
+            stage.show();           
+
+            /* Loading the scene will have resulted in the creation of a scene controller. In order for this
+             * controller to have direct access to the stage its scene is displayed, the stage is passed to the 
+             * controller's prepareStage method. */
+            secondSceneController controller = loader.getController();
+            controller.prepareStageEvents(stage);
+        }
+        catch (Exception ex)    // If anything goes wrong starting the application then call the terminate method.
+        {
+            System.out.println(ex.getMessage());
+            terminate();
+        }
     }
 }
