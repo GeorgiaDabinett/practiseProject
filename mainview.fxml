@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainSceneController">
+<Pane xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainSceneController">
    <children>
-      <SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0">
+      <SplitPane dividerPositions="0.7023411371237458" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0">
          <items>
-            <ListView prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="everythingList" prefHeight="200.0" prefWidth="200.0" />
             <Pane minHeight="-Infinity" minWidth="50.0" prefHeight="398.0" prefWidth="169.0" SplitPane.resizableWithParent="false">
                <children>
                   <FlowPane layoutX="7.0" layoutY="6.0" prefHeight="383.0" prefWidth="159.0">

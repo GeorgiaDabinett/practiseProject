@@ -25,7 +25,7 @@ public class mainSceneController
     @FXML   private Button exitButton;
     @FXML   private Button addButton;
     @FXML   private Button searchButton;
-    @FXML   private TableView everythingTable;
+    @FXML   private ListView everythingList;
     @FXML   private TableColumn nameColumn;
     @FXML   private TableColumn baseColumn;
     @FXML   private TableColumn toppingsColumn;
@@ -58,7 +58,7 @@ public class mainSceneController
             assert searchButton != null : "Can't find search button.";
             assert exitButton != null : "Can't find exit button.";
             assert addButton != null: "Can't find add buttton.";
-            assert everythingTable != null : "Can't find list box.";
+            assert everythingList != null : "Can't find list box.";
         }
         catch (AssertionError ae)
         {
@@ -69,7 +69,7 @@ public class mainSceneController
          /*Next, we load the list of fruit from the database and populate the listView. */
         System.out.println("Populating scene with items from the database...");        
         @SuppressWarnings("unchecked")
-        List<Pizza> targetList = everythingTable.getItems();  // Grab a reference to the listView's current item list.
+        List<Pizza> targetList = everythingList.getItems();  // Grab a reference to the listView's current item list.
         Pizza.readAll(targetList); 
        
         // Hand over control to the fruit model to populate this list.*/

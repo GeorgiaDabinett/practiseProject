@@ -58,12 +58,76 @@ public class Pizza
         PreparedStatement statement =Application.database.newStatement("");
         
     }
-    public static void add(int iD, String name,String toppings,int base){
-        PreparedStatement statement =Application.database.newStatement("INSERT INTO Type(id,name,Toppings,vegetarian, base) VALUES("+name+","+toppings+","+base+");");
-        
+    public void save()    
+    {
+        PreparedStatement statement;
+        try 
+        {
+            if (id == 0)
+            {
+                statement = Application.database.newStatement("SELECT id FROM type ORDER BY id DESC");             
+                if (statement != null)	
+                {
+                    ResultSet results = Application.database.runQuery(statement);
+                    if (results != null)
+                    {
+                        id = results.getInt("id") + 1;
+                    }
+                }
+
+                statement = Application.database.newStatement("INSERT INTO type (id, name, toppings, vegetarian, base) VALUES (?, ?, ?, ?, ?)");             
+                statement.setInt(1, id);
+                statement.setString(2, name);
+                statement.setInt(3, toppings); 
+                statement.setBoolean(4, vegetarian);
+                statement.setString(5, base);
+            }
+            else
+            {
+                statement = Application.database.newStatement("UPDATE type SET  id = ? ,name = ?, toppings=?, base=? , vegetarian=? WHERE id = ?");             
+                statement.setInt(1, id);
+                statement.setString(2, name);
+                statement.setInt(3, toppings); 
+                statement.setBoolean(4, vegetarian);
+                statement.setString(5, base);
+            }
+            if (statement != null)
+            {
+                Application.database.executeUpdate(statement);
+            }
+        }
+        catch (SQLException resultsexception)
+        {
+            System.out.println("Database result processing error: " + resultsexception.getMessage());
+        }
     }
-    public static void search(int iD){
-        PreparedStatement statement =Application.database.newStatement("SELECT id, name, toppings, vegetarian, base FROM type WHERE id="+iD);
-        
+
+
+    public static Pizza getById(int id)
+    {
+          Thing thing = null;
+        PreparedStatement statement = Application.database.newStatement(
+                            "SELECT id, name, categoryId FROM things WHERE id = ?"); 
+        try 
+        {
+            if (statement != null) 
+            {
+                statement.setInt(1, id);
+                ResultSet results = Application.database.runQuery(statement);
+                if (results != null) 
+                {
+                    thing = new Thing(results.getInt("id"), 
+                            results.getString("name"), 
+                            results.getInt("categoryId"));
+                }
+            }
+        }
+        catch (SQLException resultsexception)
+        {
+            System.out.println("Database result processing error: " 
+                        + resultsexception.getMessage());
+                    }
+        return thing;
     }
+
 }
