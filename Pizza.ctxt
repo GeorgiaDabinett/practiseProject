@@ -1,12 +1,16 @@
 #BlueJ class context
 comment0.params=id\ name\ toppings\ vegetarian\ base
 comment0.target=Pizza(int,\ java.lang.String,\ java.lang.String,\ java.lang.Boolean,\ java.lang.String)
-comment1.params=list
-comment1.target=void\ readAll(java.util.List)
-comment2.params=iD
-comment2.target=void\ remove(int)
-comment3.params=iD\ name\ toppings\ base
-comment3.target=void\ add(int,\ java.lang.String,\ java.lang.String,\ int)
-comment4.params=iD
-comment4.target=void\ search(int)
-numComments=5
+comment1.params=
+comment1.target=int\ getId()
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment3.params=list
+comment3.target=void\ readAll(java.util.List)
+comment4.params=id
+comment4.target=void\ deleteById(int)
+comment5.params=
+comment5.target=void\ save()
+comment6.params=id
+comment6.target=Pizza\ getById(int)
+numComments=7

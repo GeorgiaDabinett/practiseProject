@@ -2,6 +2,8 @@ import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.SplitPane;
@@ -11,6 +13,9 @@ import javafx.stage.WindowEvent;
 import javafx.scene.control.TableView;
 import java.util.List;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.Alert; 
+import javafx.scene.control.Alert.AlertType;
+import java.util.Optional;
 
 public class mainSceneController
 {
@@ -112,12 +117,34 @@ public class mainSceneController
     }
     @FXML   void removeClicked()
     {
-        System.out.println("Remove was clicked!");        
+        System.out.println("Remove was clicked!");
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Delete item");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to remove this item?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            Pizza selectedP=(Pizza) everythingList.getSelectionModel().getSelectedItem();
+            Pizza.deleteById(selectedP.getId());
+            
+        } else {
+            // ... user chose CANCEL or closed the dialog
+        }
     }
     @FXML   void exitClicked()
     {
-        System.out.println("exit was clicked!");
-        Application.terminate();
+        System.out.println("Exit was clicked!");
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Exit item");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to exit this programme?");
+        
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            Application.terminate();
+        } else {
+            // ... user chose CANCEL or closed the dialog
+        }
     }
     
 }

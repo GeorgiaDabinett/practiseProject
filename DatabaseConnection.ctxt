@@ -11,4 +11,6 @@ comment2.text=This\ method\ is\ used\ to\ actually\ execute\ a\ query\ that\ has
 comment3.params=
 comment3.target=void\ disconnect()
 comment3.text=Finally,\ this\ method\ is\ called\ when\ the\ application\ is\ terminating\ to\ close\ the\ database\ connection.
-numComments=4
+comment4.params=statement
+comment4.target=void\ executeUpdate(java.sql.PreparedStatement)
+numComments=5

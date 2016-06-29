@@ -3,6 +3,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.scene.control.TableView;
+
 /**
  * Write a description of class Pizza here.
  * 
@@ -16,7 +17,7 @@ public class Pizza
     public Boolean vegetarian;
     public String toppings;
     public String base;
-    
+
     public Pizza(int id, String name, String toppings, Boolean vegetarian,String base){
         this.id=id;
         this.name=name;
@@ -24,7 +25,16 @@ public class Pizza
         this.toppings=toppings;
         this.base=base;
     }
-    
+    public int getId(){
+        return id;
+    }
+
+    @Override
+    public String toString()
+    {
+        return name;
+    }
+
     // instance variables - replace the example below with your own
     public static void readAll(List<Pizza> list){
         list.clear();       // Clear the target list first.
@@ -54,10 +64,30 @@ public class Pizza
             }
         }
     }
-    public static void remove(int iD){
-        PreparedStatement statement =Application.database.newStatement("");
-        
+
+    public static void deleteById(int id)
+    {
+        try 
+        {
+
+            PreparedStatement statement = Application.database.newStatement(
+                    "DELETE FROM type WHERE id = ?");             
+
+            statement.setInt(1, id);
+
+            if (statement != null)
+            {
+                Application.database.executeUpdate(statement);
+            }
+        }
+        catch (SQLException resultsexception)
+        {
+            System.out.println("Database result processing error: " 
+                + resultsexception.getMessage());
+        }
+
     }
+
     public void save()    
     {
         PreparedStatement statement;
@@ -66,7 +96,7 @@ public class Pizza
             if (id == 0)
             {
                 statement = Application.database.newStatement("SELECT id FROM type ORDER BY id DESC");             
-                if (statement != null)	
+                if (statement != null)  
                 {
                     ResultSet results = Application.database.runQuery(statement);
                     if (results != null)
@@ -78,7 +108,7 @@ public class Pizza
                 statement = Application.database.newStatement("INSERT INTO type (id, name, toppings, vegetarian, base) VALUES (?, ?, ?, ?, ?)");             
                 statement.setInt(1, id);
                 statement.setString(2, name);
-                statement.setInt(3, toppings); 
+                statement.setString(3, toppings); 
                 statement.setBoolean(4, vegetarian);
                 statement.setString(5, base);
             }
@@ -87,7 +117,7 @@ public class Pizza
                 statement = Application.database.newStatement("UPDATE type SET  id = ? ,name = ?, toppings=?, base=? , vegetarian=? WHERE id = ?");             
                 statement.setInt(1, id);
                 statement.setString(2, name);
-                statement.setInt(3, toppings); 
+                statement.setString(3, toppings); 
                 statement.setBoolean(4, vegetarian);
                 statement.setString(5, base);
             }
@@ -102,12 +132,11 @@ public class Pizza
         }
     }
 
-
     public static Pizza getById(int id)
     {
-          Thing thing = null;
+        Pizza Pizza = null;
         PreparedStatement statement = Application.database.newStatement(
-                            "SELECT id, name, categoryId FROM things WHERE id = ?"); 
+                "SELECT id, name, toppings, vegetarian, base FROM type WHERE id = ?"); 
         try 
         {
             if (statement != null) 
@@ -116,18 +145,18 @@ public class Pizza
                 ResultSet results = Application.database.runQuery(statement);
                 if (results != null) 
                 {
-                    thing = new Thing(results.getInt("id"), 
-                            results.getString("name"), 
-                            results.getInt("categoryId"));
+                    Pizza = new Pizza(results.getInt("id"), 
+                        results.getString("name"), 
+                        results.getString("toppings"),
+                        results.getBoolean("vegetarian"),
+                        results.getString("base") );
                 }
             }
         }
         catch (SQLException resultsexception)
         {
             System.out.println("Database result processing error: " 
-                        + resultsexception.getMessage());
-                    }
-        return thing;
-    }
-
-}
+                + resultsexception.getMessage());
+        }
+        return Pizza;
+    }}

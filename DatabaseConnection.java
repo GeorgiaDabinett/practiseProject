@@ -75,5 +75,16 @@ public class DatabaseConnection
             System.out.println("Database disconnection error: " + finalexception.getMessage());
         }        
     }
+    public void executeUpdate(PreparedStatement statement)
+    {               
+        try {            
+            statement.executeUpdate();                       
+        }
+        catch (SQLException queryexception) 
+        {
+            System.out.println("Database update error: " +
+            queryexception.getMessage());
+        }
+    }
 
 }
